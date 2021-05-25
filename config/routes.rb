@@ -10,4 +10,6 @@ Rails.application.routes.draw do
 
   get 'tasks/:id', to: 'tasks#show', as: :task
 
+  delete 'tasks/:id', to: 'tasks#destroy'
+
 end

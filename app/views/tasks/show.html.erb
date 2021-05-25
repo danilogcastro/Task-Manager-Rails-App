@@ -1,12 +1,17 @@
 <h1><%= @task.title %></h1>
-<h2><%= @task.details %></h2>
-<h3><%= @task.completed %></h3>
 
-<%= link_to "Edit", update_task_path %>
+<div class="details-card border rounded my-4 p-4">
+  <p class="m-0"><%= @task.details %></p>
+</div>
 
-<%= link_to "Go back to all tasks", tasks_path %>
+<% if @task.completed %>
+  <p><i class="far fa-check-square"></i>This task is completed</p>
+<% else %>
+  <p><i class="far fa-square"></i>This task is not yet completed</p>
+<% end %>
 
-<%= link_to "Delete Task",
-            task_path(@task),
-            method: :delete,
-            data: { confirm: "Are you sure?" } %>
+<%= link_to "Go back to all tasks", tasks_path, class: "btn btn-info" %>
+
+<%= link_to "Edit", edit_task_path, class: "btn btn-warning" %>
+
+
